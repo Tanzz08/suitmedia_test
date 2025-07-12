@@ -28,6 +28,9 @@ class ThridActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getData()
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            refreshGetData()
+        }
     }
 
     private fun getData() {
@@ -64,11 +67,17 @@ class ThridActivity : AppCompatActivity() {
             )
             viewModel.userData.observe(this@ThridActivity) {
                 adapter.submitData(this@ThridActivity.lifecycle, it)
+                swipeRefreshLayout.isRefreshing = false
             }
             btnBack.setOnClickListener {
                 finish()
             }
         }
+    }
+
+    private fun refreshGetData() {
+        binding.swipeRefreshLayout.isRefreshing = true
+        getData()
     }
 
 

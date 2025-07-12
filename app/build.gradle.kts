@@ -68,4 +68,7 @@ dependencies {
 
     // paging 3
     implementation(libs.androidx.paging.runtime.ktx)
+
+    // swipe refresh layout
+    implementation(libs.androidx.swiperefreshlayout)
 }
