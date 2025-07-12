@@ -30,12 +30,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 val isPalindrome = checkPalindrome(sentence)
-                val resultMessage: String
-
-                if (isPalindrome) {
-                    resultMessage = "isPalindrome"
+                val resultMessage: String = if (isPalindrome) {
+                    "isPalindrome"
                 } else {
-                    resultMessage = "notPalindrome"
+                    "notPalindrome"
                 }
                 showResultDialog(resultMessage)
             }
